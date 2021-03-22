@@ -243,6 +243,9 @@ GEM
       sprockets-rails
       tilt
     sexp_processor (4.15.2)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -300,6 +303,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.5)
   rspec-rails (~> 4.1.0)
   sass-rails (>= 6)
+  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)

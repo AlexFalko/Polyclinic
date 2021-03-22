@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-
+  before_action :require_create, only: [:create]
   def edit
     @appointment = Appointment.find_by(id: params[:id])
   end
@@ -36,6 +36,16 @@ class AppointmentsController < ApplicationController
     params.require(:appointment)
           .permit(:recommendation)
           .merge(status: :inactive)
+  end
+
+
+  def require_create
+    doctor = Doctor.find(params[:doctor_id])
+
+    if doctor.appointments.active.count >= Appointment::MAX_DOCTOR_APPOINTMENTS
+      redirect_to patient_path(patient_id), flash: { alert: "t('.has_max_appointments')",
+                                      max_doctor_appointments: Appointment::MAX_DOCTOR_APPOINTMENTS }
+    end
   end
 
 end

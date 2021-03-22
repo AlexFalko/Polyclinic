@@ -1,2 +1,8 @@
 = current_user.name
-= @appointment.doctor.name
+= t('.title')
+= @appointment.patient.name
+= simple_form_for @appointment do |f|
+  = f.input :recommendation, :label => t('.text')
+  = f.button :submit, "Дать",class: "btn-primary"
+-# - else
+-# = render "partials/error"

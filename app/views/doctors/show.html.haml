@@ -6,8 +6,8 @@
   = current_user.name
   %br
   = t('.about_show')
-  %p
-  - current_user.appointments.active.each do |appointment|
+  %p  
+  - current_user.appointments.includes([:patient]).active.each do |appointment|
     .col-4.border.pr-0.pl-0.mb-3
       .card
         %img.card-img-top{:alt => "...", 
@@ -19,4 +19,4 @@
           %p.btn.btn-success 
             = appointment.status 
           %p.card-text 
-          = link_to t('.save'), edit_appointment_path(appointment), class: 'btn btn-primary'
+          = link_to "Дать рекомендацию!", edit_appointment_path, class: 'btn btn-primary'
