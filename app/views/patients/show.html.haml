@@ -1,4 +1,16 @@
-patients/show
-
-- @categories.each do |category|  
-  = category.name
+-# =binding.pry
+.container
+  .row
+    - @categories.includes([:doctors]).each do |category|  
+      -# %h5= category.name
+      - category.doctors.each do |doctor|
+        .col-2.border.pr-3.pl-0.mb-3
+          .card
+          %img.card-img-top{:alt => "...",
+                            :src => "https://cdn1.savepice.ru/uploads/2020/10/30/feff59b9c5ec31f427efed8450683d68-full.jpg"}/
+          .card-body
+            %h5.card-title 
+            = doctor.name
+            %p.card-text 
+            = doctor.category.name
+            = button_to "Записаться", appointments_path(doctor_id: doctor.id)
