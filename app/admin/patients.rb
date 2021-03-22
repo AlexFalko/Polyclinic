@@ -1,3 +1,3 @@
 ActiveAdmin.register Patient do
-  permit_params :email, :type, :name
+  permit_params :phone_number, :type, :name
 end

@@ -1,10 +1,10 @@
 ActiveAdmin.register Doctor do
 
 
-  permit_params :email, :password, :password_confirmation, :type, :name, :category_id
+  permit_params :phone_number, :password, :password_confirmation, :type, :name, :category_id
   form do |f|
     f.inputs do
-      f.input :email
+      f.input :phone_number
       f.input :password
       f.input :category
       f.input :name
