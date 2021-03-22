@@ -1,7 +1,7 @@
 class Patients::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
   def create
-    params[:user] = params[:user]&.merge(type: 'Patient')
+    params[:user] = params[:user]&.merge(type: Patient.name)
     super
   end
   protected
