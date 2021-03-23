@@ -1,7 +1,8 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Polyclinic
+    %title 
+      = t('.project_name')
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -10,18 +11,21 @@
     .navbar.navbar-expand-lg.navbar-dark.bg-primary.justify-content-between.bg-danger
       .container
         %div
-          %a.navbar-brand{:href => "#"} :Codica
+          %h4.mb-0
+            .navbar-brand
+              = link_to t('.project_name'), root_path, class: "nav-item text-white"
         %div
           .navbar-nav
             - if user_signed_in?
               %span.nav-item.nav-link.text-white
-                Hello #{current_user.phone_number}
-              = link_to "Exit", destroy_user_session_path, method: :delete, class: "nav-item nav-link text-white"
+                = t('.hello') 
+                #{current_user.phone_number}
+              = link_to t('.exit'), destroy_user_session_path, method: :delete, class: "nav-item nav-link text-white"
             - else
-              = link_to "Sign in", new_user_session_path, class: "nav-item nav-link text text-white"
-              = link_to "Sign up", new_user_registration_path, class: "nav-item nav-link text-white"
+              = link_to t('.sign_in'), new_user_session_path, class: "nav-item nav-link text text-white"
+              = link_to t('.sign_up'), new_user_registration_path, class: "nav-item nav-link text-white"
     #flash
     - flash.each do |key, value|
-      %div{class: "flash #{key}"}= value        
+      %div{class: "flash #{key}"}= value
     = yield
     

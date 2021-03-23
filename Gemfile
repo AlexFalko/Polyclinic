@@ -24,7 +24,6 @@ group :test do
   gem 'rspec-rails', '~> 4.1.0'
 end
 
-
 group :development do
   gem 'ffaker'
   gem 'pry'

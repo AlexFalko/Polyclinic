@@ -13,24 +13,33 @@ en:
       save: 'Give a recommendation'
       welcome: 'Welcome'
       about_show: 'this is a list of registered patients for your appointment.'
-  users:
+  patients:
     show:
       save: 'Sign up'
       welcome: 'Welcome'
-      about_user: 'this is a list of doctors by categories to which you can make an appointment.'
+      about_user: 'This is a list of doctors by categories to which you can make an appointment.'
       text: 'Recommendations'
-  partials:
-    menu_not_authorized:
-      sign_up: 'Sign_up'
-      log_in_doctor: 'Log_in Doctor'
-      log_in_user: 'Log_in User'
-    menu_authorized:
-      hello_user: "Hello %{name}"  
-      change_profile: 'Change profile'
-      exit: 'Exit'
-    error: 
-      text: 'No access'  
   layouts:    
     application:
-      project_name: 'Hospital'
+      project_name: ':Codica'
+      hello: 'Hello'
+      sign_in: 'Sign in'
+      sign_up: 'Sign up'
+      exit: 'Exit'
+  devise:
+    registrations:
+      new:
+        password: 'Password'
+        phone_number: 'Phone number'
+        pass_confirm: 'Password confirmation'
+        sign_up: 'Sign up'
+        please_sign_up: 'Please sign up'
+    sessions:
+      new:
+        password: 'Password'
+        phone_number: 'Phone number'
+        sign_in: 'Sign in'
+        remember_me: 'Remember me'
+        please_sing_in: 'Please sign in'
+            
       

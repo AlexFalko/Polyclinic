@@ -11,9 +11,9 @@ class AppointmentsController < ApplicationController
                                       status: :active)
     
     if @appointment.save
-      redirect_to patient_path(current_user.id), flash: { notice: "Appointment doctor" }
+      redirect_to patient_path(current_user.id), flash: { notice: t('.successfully_appointment') }
     else
-      render 'patients#show', flash: { notice: "Appointment error" }
+      render 'patients#show', flash: { notice: t('.error_appointment') }
     end
   end
   

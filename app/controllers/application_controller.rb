@@ -22,8 +22,6 @@ class ApplicationController < ActionController::Base
     redirect_to(request.referrer || root_path)
   end
 
-  protected
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:phone_number])
