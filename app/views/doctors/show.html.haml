@@ -4,14 +4,14 @@
   %br
   = t('.about_show')
   %p  
-  - current_user.appointments.includes([:patient]).active.each do |appointment|
+  - @active_patients.each do |appointment|
     .col-4.border.pr-0.pl-0.mb-3
       .card
         %img.card-img-top{:alt => "...", 
                           :src => "https://cdn25.img.ria.ru/images/150843/40/1508434055_361:0:5481:3840_1400x0_80_0_0_62bd7398a2471d837bd76a66d174b9bb.jpg"}/
         .card-body
           %h5.card-title 
-          = appointment.patient.name
+          = appointment.patient_name
           %br
           %p.btn.btn-success 
             = appointment.status 
