@@ -3,7 +3,6 @@ class AppointmentsController < ApplicationController
   def edit
     sourse = Appointment.find_by(id: params[:id])
     @appointment = AppointmentDecorator.new(sourse)
-    # @appointment = Appointment.find_by(id: params[:id])
   end
 
   def create
