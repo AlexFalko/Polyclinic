@@ -1,6 +1,7 @@
 .content_center
   = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f|
-    %h2.form-signin-heading Please sign in
+    %h3.form-signin-heading
+      = t('.please_sing_in')
     = f.label :phone_number, t('.phone_number'), class: 'sr-only'
     = f.telephone_field :phone_number, autofocus: true, class: 'form-control mb-3', placeholder: t('.phone_number')
     = f.label :password, t('.password'), class: 'sr-only'
@@ -8,5 +9,5 @@
     - if devise_mapping.rememberable?
       %label
         = f.check_box :remember_me, label: false
-        Remember me
+        = t('.remember_me')
     = f.button t('.sign_in'), class: 'btn btn-primary btn-block bg-danger border-0'

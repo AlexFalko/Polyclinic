@@ -33,10 +33,13 @@ en:
         phone_number: 'Phone number'
         pass_confirm: 'Password confirmation'
         sign_up: 'Sign up'
+        please_sign_up: 'Please sign up'
     sessions:
       new:
         password: 'Password'
         phone_number: 'Phone number'
         sign_in: 'Sign in'
+        remember_me: 'Remember me'
+        please_sing_in: 'Please sign in'
             
       
