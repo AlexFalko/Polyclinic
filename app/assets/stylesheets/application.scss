@@ -14,3 +14,14 @@
  *= require_self
  */
  @import "bootstrap/scss/bootstrap";
+
+ .content_center {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+ }
+ 

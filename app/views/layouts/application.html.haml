@@ -1,4 +1,3 @@
-!!!
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
@@ -8,18 +7,21 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .navbar.navbar-expand-lg.navbar-light.bg-light.justify-content-between
-      %div
-        %a.navbar-brand{:href => "#"} ToDoList
-      %div
-        .navbar-nav
-          - if user_signed_in?
-            %span.nav-item.nav-link
-              Здравствуйте, #{current_user.name}
-            = link_to "Выход", destroy_user_session_path, method: :delete, class: "nav-item nav-link text-dark"
-          - else
-            = link_to "Вход", new_user_session_path, class: "nav-item nav-link"
-            = link_to "Регистрация", new_user_registration_path, class: "nav-item nav-link"
+    .navbar.navbar-expand-lg.navbar-dark.bg-primary.justify-content-between.bg-danger
+      .container
+        %div
+          %a.navbar-brand{:href => "#"} :Codica
+        %div
+          .navbar-nav
+            - if user_signed_in?
+              %span.nav-item.nav-link.text-white
+                Hello #{current_user.phone_number}
+              = link_to "Exit", destroy_user_session_path, method: :delete, class: "nav-item nav-link text-white"
+            - else
+              = link_to "Sign in", new_user_session_path, class: "nav-item nav-link text text-white"
+              = link_to "Sign up", new_user_registration_path, class: "nav-item nav-link text-white"
+    #flash
+    - flash.each do |key, value|
+      %div{class: "flash #{key}"}= value        
     = yield
-    %p.notice= notice
-    %p.alert= alert
+    

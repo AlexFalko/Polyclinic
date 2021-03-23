@@ -1,17 +1,12 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :phone_number
-    %br/
-    = f.telephone_field :phone_number, autofocus: true, autocomplete: "phone_number"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.content_center
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f|
+    %h2.form-signin-heading Please sign in
+    = f.label :phone_number, 'Phone number', class: 'sr-only'
+    = f.telephone_field :phone_number, autofocus: true, class: 'form-control mb-3', placeholder: 'Phone number'
+    = f.label :password, 'Password', class: 'sr-only'
+    = f.password_field :password, autocomplete: "off", class: 'form-control mb-2', placeholder: 'Password'
+    - if devise_mapping.rememberable?
+      %label
+        = f.check_box :remember_me, label: false
+        Remember me
+    = f.button "Sign in", class: 'btn btn-primary btn-block bg-danger border-0'

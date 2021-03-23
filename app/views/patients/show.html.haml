@@ -1,4 +1,5 @@
 -# =binding.pry
+= javascript_tag 'hello'
 .container
   .row
     - @categories.includes([:doctors]).each do |category|  
@@ -15,13 +16,31 @@
             = doctor.category.name
             = button_to "Записаться", appointments_path(doctor_id: doctor.id)
 
-- current_user.appointments.includes([:doctor]).inactive.each do |appointment|
-  .col-4
-    .border.mb-3
-      = appointment.doctor.name
-      %br
-      = appointment.recommendation
-      %br
-      %p.btn.btn-danger 
-        = appointment.status
-      %br
+-# - current_user.appointments.includes([:doctor]).inactive.each do |appointment|
+-#   .col-4
+-#     .border.mb-3
+-#       = appointment.doctor.name
+-#       %br
+-#       = appointment.recommendation
+-#       %br
+-#       %p.btn.btn-danger 
+-#         = appointment.status
+-#       %br
+%button{onclick:"hello('Dire')"} Hey!
+.container
+  .row
+    .col-4
+      #list-tab.list-group{role: "tablist"}
+      - @categories.includes([:doctors]).each do |category|
+        %a#list-home-list.list-group-item.list-group-item-action.active{"aria-controls" => "#{category.name}", "data-toggle" => "list", href: "#list-#{category.name}", role: "tab"} 
+          = category.name
+        %a#list-profile-list.list-group-item.list-group-item-action{"aria-controls" => "profile", "data-toggle" => "list", href: "#list-profile", role: "tab"} Profile
+        -# %a#list-messages-list.list-group-item.list-group-item-action{"aria-controls" => "messages", "data-toggle" => "list", href: "#list-messages", role: "tab"} Messages
+        -# %a#list-settings-list.list-group-item.list-group-item-action{"aria-controls" => "settings", "data-toggle" => "list", href: "#list-settings", role: "tab"} Settings
+    .col-8
+      #nav-tabContent.tab-content
+        #list-home.tab-pane.fade.show.active{"aria-labelledby" => "list-home-list", role: "tabpanel"} ааа
+        #list-profile.tab-pane.fade{"aria-labelledby" => "list-profile-list", role: "tabpanel"} bbb
+        -# #list-messages.tab-pane.fade{"aria-labelledby" => "list-messages-list", role: "tabpanel"} ...
+        -# #list-settings.tab-pane.fade{"aria-labelledby" => "list-settings-list", role: "tabpanel"} ...
+
