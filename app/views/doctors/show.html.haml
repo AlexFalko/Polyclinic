@@ -1,7 +1,4 @@
 .container.text-center
-  = notice
-  = alert
-  %p
   = t('.welcome') 
   = current_user.name
   %br
@@ -19,4 +16,4 @@
           %p.btn.btn-success 
             = appointment.status 
           %p.card-text 
-          = link_to "Дать рекомендацию!", edit_appointment_path(appointment), class: 'btn btn-primary'
+          = link_to t('.save'), edit_appointment_path(appointment), class: 'btn btn-primary'

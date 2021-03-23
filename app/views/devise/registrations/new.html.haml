@@ -2,14 +2,14 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin"}) do |f|
     = render "devise/shared/error_messages", resource: resource
     %h2.form-signin-heading Please sign up
-    = f.label :phone_number, 'Phone number', class: 'sr-only'
-    = f.telephone_field :phone_number, autofocus: true, class: 'form-control mb-2', placeholder: 'Phone number'
-    = f.label :password, 'Password', class: 'sr-only'
+    = f.label :phone_number, t('.phone_number'), class: 'sr-only'
+    = f.telephone_field :phone_number, autofocus: true, class: 'form-control mb-2', placeholder: t('.phone_number')
+    = f.label :password, t('.password'), class: 'sr-only'
     -# - if @minimum_password_length
     -#   %em
     -#     (#{@minimum_password_length} characters minimum)
-    = f.password_field :password, autocomplete: "off", class: 'form-control mb-2', placeholder: 'Password'
-    = f.label :password, 'Password confirmation', class: 'sr-only'
-    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control mb-2', placeholder: 'Password confirmation'
-    = f.button "Sign in", class: 'btn btn-primary btn-block bg-danger border-0'
+    = f.password_field :password, autocomplete: "off", class: 'form-control mb-2', placeholder: t('.password')
+    = f.label :password, t('.pass_confirm'), class: 'sr-only'
+    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control mb-2', placeholder: t('.pass_confirm')
+    = f.button t('.sign_up'), class: 'btn btn-primary btn-block bg-danger border-0'
 
