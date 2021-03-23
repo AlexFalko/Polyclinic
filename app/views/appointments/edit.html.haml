@@ -1,7 +1,7 @@
 .container
   = current_user.name
   = t('.title')
-  = @appointment.patient.name
+  = @appointment.patient_name
   = simple_form_for @appointment do |f|
     = f.input :recommendation, :label => t('.text')
     = f.button :submit, t('.save'),class: "btn-primary"
