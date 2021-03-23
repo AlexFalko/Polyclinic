@@ -1,7 +1,9 @@
 class AppointmentsController < ApplicationController
   before_action :require_create, only: [:create]
   def edit
-    @appointment = Appointment.find_by(id: params[:id])
+    sourse = Appointment.find_by(id: params[:id])
+    @appointment = AppointmentDecorator.new(sourse)
+    # @appointment = Appointment.find_by(id: params[:id])
   end
 
   def create
