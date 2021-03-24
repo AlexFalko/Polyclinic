@@ -1,7 +1,6 @@
 .container
   .row
     - @categories.each do |category|  
-      -# %h5= category.name
       - category.doctors.each do |doctor|
         .col-2.border.pr-3.pl-0.mb-3
           .card

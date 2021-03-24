@@ -1,10 +1,13 @@
 class AppointmentsController < ApplicationController
   before_action :require_create, only: [:create]
   def edit
+    authorize Appointment
     @appointment = Appointment.find_by(id: params[:id]).decorate
+    
   end
 
   def create
+    authorize Appointment
     @appointment = Appointment.create(doctor_id: params[:doctor_id],
                                       patient_id: current_user.id,
                                       status: :active)
@@ -18,6 +21,7 @@ class AppointmentsController < ApplicationController
   
 
   def update
+    authorize Appointment
     @appointment = Appointment.find_by(id: params[:id])
 
     if @appointment.update(appointment_params)
