@@ -1,11 +1,14 @@
+= form_for current_user do |f|
+  = f.label :avatar
+  = f.file_field :avatar
+  = f.submit
 .container
   .row
     - @categories.each do |category|  
       - category.doctors.each do |doctor|
         .col-2.border.pr-3.pl-0.mb-3
           .card
-          %img.card-img-top{:alt => "...",
-                            :src => "https://cdn1.savepice.ru/uploads/2020/10/30/feff59b9c5ec31f427efed8450683d68-full.jpg"}/
+            = image_tag(doctor.avatar.url, alt: 'Image') if doctor.avatar?
           .card-body
             %h5.card-title 
             = doctor.name
@@ -23,3 +26,4 @@
       %p.btn.btn-danger 
         = appointment.status
       %br
+-# - binding.pry
