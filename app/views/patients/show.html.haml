@@ -1,7 +1,6 @@
 .container
   .row
-    - @categories.includes([:doctors]).each do |category|  
-      -# %h5= category.name
+    - @categories.each do |category|  
       - category.doctors.each do |doctor|
         .col-2.border.pr-3.pl-0.mb-3
           .card
@@ -14,7 +13,7 @@
             = doctor.category.name
             = button_to t('.save'), appointments_path(doctor_id: doctor.id)
 
-- current_user.appointments.includes([:doctor]).inactive.each do |appointment|
+- @inactive_appointment.each do |appointment|
   .col-4
     .border.mb-3
       = appointment.doctor.name
