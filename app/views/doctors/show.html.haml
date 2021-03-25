@@ -1,18 +1,16 @@
-= form_for current_user do |f|
-  = f.label :avatar
-  = f.file_field :avatar
-  = f.submit
-.container.text-center
+.container
+  %button.btn.btn-primary.mt-3.mb-3{"data-target" => "#exampleModal", "data-toggle" => "modal", type: "button"}
+    Upload avatar
+  %br
   = t('.welcome') 
   = current_user.name
   %br
   = t('.about_show')
-  %p  
+  %p
   - @active_patients.each do |appointment|
     .col-4.border.pr-0.pl-0.mb-3
       .card
-        = binding.pry
-        = image_tag(appointment.patient.avatar.url, alt: 'Image') if patient.avatar?
+        = image_tag(appointment.patient.avatar.url, alt: 'Image') if appointment.patient.avatar?
       .card-body
         %h5.card-title 
         = appointment.patient_name
@@ -21,3 +19,15 @@
           = appointment.status 
         %p.card-text 
         = link_to t('.save'), edit_appointment_path(appointment), class: 'btn btn-primary'
+
+#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title Modal title
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        = form_for current_user do |f|
+          = f.file_field :avatar
+          = f.submit "Load", class: "btn btn-primary modal-footer mt-2"
