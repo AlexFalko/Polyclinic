@@ -22,9 +22,9 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find_by(id: params[:id])
 
     if @appointment.update(appointment_params)
-      redirect_to doctor_path
+      redirect_to doctor_path, flash: { notice: t('.successfully_recommendation') }
     else
-      render 'edit'
+      render 'edit', flash: { alert: t('.error_recommendation') }
     end
   end
 
@@ -38,9 +38,8 @@ class AppointmentsController < ApplicationController
 
   def require_create
     doctor = Doctor.find_by(id: params[:doctor_id])
-
     if doctor.appointments.active.count >= Appointment::MAX_DOCTOR_APPOINTMENTS
-      redirect_to patient_path, flash: { alert: t('.has_max_appointments', max_doctor_appointments:
+      redirect_to patient_path(id: current_user.id), flash: { alert: t('.has_max_appointments', max_doctor_appointments:
       Appointment::MAX_DOCTOR_APPOINTMENTS) }
     end
   end

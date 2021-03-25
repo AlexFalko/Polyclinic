@@ -1,32 +1,27 @@
 .container
   %button.btn.btn-primary.mt-3.mb-3{"data-target" => "#exampleModal", "data-toggle" => "modal", type: "button"}
-    Upload avatar
-  -# %br
-  -# = t('.welcome') 
-  -# = current_user.name
-  -# %br
-  -# = t('.about_show')
-  -# %p
+    = t('.upload_avatar')
 
 #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
   .modal-dialog{role: "document"}
     .modal-content
       .modal-header
-        %h5#exampleModalLabel.modal-title Modal title
+        %h5#exampleModalLabel.modal-title
+          = t('.upload_photo')
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
           %span{"aria-hidden" => "true"} ×
       .modal-body
         = form_for current_user do |f|
           = f.file_field :avatar
-          = f.submit "Load", class: "btn btn-primary modal-footer mt-2"
+          = f.submit 'Load', class: "btn btn-primary modal-footer mt-2"
 
 .container
   .row
     - @active_patients.each do |appointment|
       .col.mb-4
-        .card{style: "width: 15rem;"}
+        .card.card_width
           %img.card-img-top
-          = image_tag(appointment.patient.avatar.url, alt: 'Image') if appointment.patient.avatar?
+          = image_tag(appointment.patient.avatar.url) if appointment.patient.avatar?
           .card-body.pb-2
             %h5.card-title
               = appointment.patient_name

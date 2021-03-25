@@ -1,25 +1,27 @@
 .container
   %button.btn.btn-primary.mt-3.mb-3{"data-target" => "#exampleModal", "data-toggle" => "modal", type: "button"}
-    Upload avatar
+    = t('.upload_avatar')
   %button.btn.btn-success.mt-3.mb-3{"data-target" => "#RecomendModal", "data-toggle" => "modal", type: "button"}
-    My recommendation  
+    = t('.my_recommendation')
 
   #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
     .modal-dialog{role: "document"}
       .modal-content
         .modal-header
-          %h5#exampleModalLabel.modal-title Upload photo
+          %h5#exampleModalLabel.modal-title
+            = t('.upload_photo')
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
             %span{"aria-hidden" => "true"} ×
         .modal-body
           = form_for current_user do |f|
             = f.file_field :avatar
-            = f.submit "Load", class: "btn btn-primary modal-footer mt-2"
+            = f.submit 'Load', class: "btn btn-primary modal-footer mt-2"
   #RecomendModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
     .modal-dialog{role: "document"}
       .modal-content
         .modal-header
-          %h5#exampleModalLabel.modal-title List recommendation
+          %h5#exampleModalLabel.modal-title
+            = t('.list_recommendation')
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
             %span{"aria-hidden" => "true"} ×
         .modal-body
@@ -37,9 +39,9 @@
     - @categories.each do |category|
       - category.doctors.each do |doctor|
         .col.mb-4
-          .card{style: "width: 15rem;"}
+          .card.cart_width
             %img.card-img-top
-            = image_tag(doctor.avatar.url, alt: 'Image') if doctor.avatar?
+            = image_tag(doctor.avatar.url) if doctor.avatar?
             .card-body.pb-2
               %h5.card-title
                 = doctor.name
