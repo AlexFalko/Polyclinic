@@ -12,7 +12,7 @@ en:
     show:
       save: 'Give a recommendation'
       welcome: 'Welcome'
-      about_show: 'this is a list of registered patients for your appointment.'
+      about_show: 'This is a list of registered patients for your appointment.'
   patients:
     show:
       save: 'Sign up'
