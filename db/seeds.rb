@@ -2,6 +2,8 @@ AdminUser.create!(phone_number: '+380686363616', password: 'password', password_
 
 10.times { Category.create(name: FFaker::HealthcareRU.doctor_specialization) }
 
+
+
 10.times do
   Doctor.create(name: FFaker::Name.name,
                 phone_number: FFaker::PhoneNumberUA.international_mobile_phone_number,

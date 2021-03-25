@@ -30,7 +30,5 @@ production:
   timeout: 5000
   port: 5432
   host: ec2-54-205-183-19.compute-1.amazonaws.com
-  AWS_ACCESS_KEY_ID: AKIAVSSORQKGWVPKTSMP
-  AWS_SECRET_ACCESS_KEY: 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
-  ARTIFACTS_BUCKET: active-storage-image
+
 
