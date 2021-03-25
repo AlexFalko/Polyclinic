@@ -9,7 +9,6 @@ class AdminUser < ApplicationRecord
     where(phone_number: conditions[:phone_number]).first
   end
 
-  # Stop using email as authentication key
   def email_required?
     false
   end

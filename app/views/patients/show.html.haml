@@ -1,25 +1,37 @@
 .container
+  %button.btn.btn-primary.mt-3.mb-3{"data-target" => "#exampleModal", "data-toggle" => "modal", type: "button"}
+    Upload avatar
   .row
     - @categories.each do |category|  
       - category.doctors.each do |doctor|
-        .col-2.border.pr-3.pl-0.mb-3
+        .col-2.border.pr-0.pl-0.mb-3
           .card
-          %img.card-img-top{:alt => "...",
-                            :src => "https://cdn1.savepice.ru/uploads/2020/10/30/feff59b9c5ec31f427efed8450683d68-full.jpg"}/
+            = image_tag(doctor.avatar.url, alt: 'Image') if doctor.avatar?
           .card-body
             %h5.card-title 
             = doctor.name
             %p.card-text 
             = doctor.category.name
             = button_to t('.save'), appointments_path(doctor_id: doctor.id)
+    #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
+      .modal-dialog{role: "document"}
+        .modal-content
+          .modal-header
+            %h5#exampleModalLabel.modal-title Modal title
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+              %span{"aria-hidden" => "true"} ×
+          .modal-body
+            = form_for current_user do |f|
+              = f.file_field :avatar
+              = f.submit "Load", class: "btn btn-primary modal-footer mt-2"
+  - @inactive_appointment.each do |appointment|
+    .col-4
+      .border.mb-3
+        = appointment.doctor.name
+        %br
+        = appointment.recommendation
+        %br
+        %p.btn.btn-danger
+          = appointment.status
+        %br
 
-- @inactive_appointment.each do |appointment|
-  .col-4
-    .border.mb-3
-      = appointment.doctor.name
-      %br
-      = appointment.recommendation
-      %br
-      %p.btn.btn-danger 
-        = appointment.status
-      %br

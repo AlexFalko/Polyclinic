@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   root to: "users#show"
   resources :appointments, only: %i[create edit update]
-  resource :doctor, only: %i[show edit]
-  resource :patient, only: [:show]
+  resources :doctors
+  resources :patients
 end
