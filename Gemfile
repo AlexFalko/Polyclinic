@@ -29,13 +29,9 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :test do
-  gem 'rspec-rails', '~> 4.1.0'
-end
-
 group :development do
   gem 'sqlite3', '~> 1.4'
-  
+  gem 'rubocop-rails', require: false
   gem 'pry'
   gem 'bullet'
   gem 'web-console', '>= 3.3.0'

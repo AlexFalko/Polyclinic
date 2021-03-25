@@ -1,6 +1,8 @@
 .container
   %button.btn.btn-primary.mt-3.mb-3{"data-target" => "#exampleModal", "data-toggle" => "modal", type: "button"}
     Upload avatar
+  %button.btn.btn-success.mt-3.mb-3{"data-target" => "#RecomendModal", "data-toggle" => "modal", type: "button"}
+    My recommendation  
   .row
     - @categories.each do |category|  
       - category.doctors.each do |doctor|
@@ -11,27 +13,34 @@
             %h5.card-title 
             = doctor.name
             %p.card-text 
-            = doctor.category.name
+            = category.name
             = button_to t('.save'), appointments_path(doctor_id: doctor.id)
     #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
       .modal-dialog{role: "document"}
         .modal-content
           .modal-header
-            %h5#exampleModalLabel.modal-title Modal title
+            %h5#exampleModalLabel.modal-title Upload photo
             %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
               %span{"aria-hidden" => "true"} ×
           .modal-body
             = form_for current_user do |f|
               = f.file_field :avatar
               = f.submit "Load", class: "btn btn-primary modal-footer mt-2"
-  - @inactive_appointment.each do |appointment|
-    .col-4
-      .border.mb-3
-        = appointment.doctor.name
-        %br
-        = appointment.recommendation
-        %br
-        %p.btn.btn-danger
-          = appointment.status
-        %br
+    #RecomendModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", role: "dialog", tabindex: "-1"}
+      .modal-dialog{role: "document"}
+        .modal-content
+          .modal-header
+            %h5#exampleModalLabel.modal-title List recommendation
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+              %span{"aria-hidden" => "true"} ×
+          .modal-body
+            - @inactive_appointment.each do |appointment|
+              .border.mb-3.pl-3
+                = appointment.doctor.name
+                %br
+                = appointment.recommendation
+                %br
+                %p.btn.btn-danger.mb-1
+                  = appointment.status
+                %br
 
