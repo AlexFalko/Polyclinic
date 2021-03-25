@@ -5,7 +5,6 @@ ruby '2.7.0'
 gem 'activeadmin'
 gem 'devise'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
-gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
 gem 'pundit'
 gem 'draper'
@@ -25,11 +24,17 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 group :test do
   gem 'rspec-rails', '~> 4.1.0'
 end
 
 group :development do
+  gem 'sqlite3', '~> 1.4'
   gem 'ffaker'
   gem 'pry'
   gem 'bullet'
