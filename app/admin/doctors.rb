@@ -1,6 +1,4 @@
 ActiveAdmin.register Doctor do
-
-
   permit_params :phone_number, :password, :password_confirmation, :type, :name, :category_id
   form do |f|
     f.inputs do
@@ -20,5 +18,4 @@ ActiveAdmin.register Doctor do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

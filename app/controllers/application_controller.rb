@@ -14,11 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
- 
+
   private
- 
+
   def user_not_authorized
-    flash[:warning] = "You are not authorized to perform this action."
+    flash[:warning] = 'You are not authorized to perform this action.'
     redirect_to(request.referrer || root_path)
   end
 
@@ -26,5 +26,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:phone_number])
   end
-
 end

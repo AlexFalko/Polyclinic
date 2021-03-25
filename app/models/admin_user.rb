@@ -1,7 +1,7 @@
 class AdminUser < ApplicationRecord
   validates :phone_number, uniqueness: true
 
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
   def self.find_first_by_auth_conditions(warden_conditions)
