@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
 gem 'puma', '~> 4.1'
 gem 'pundit'
 gem 'draper'
+gem 'ffaker'
 gem 'carrierwave'
 gem 'file_validators'
 gem 'fog-aws'
@@ -34,7 +35,7 @@ end
 
 group :development do
   gem 'sqlite3', '~> 1.4'
-  gem 'ffaker'
+  
   gem 'pry'
   gem 'bullet'
   gem 'web-console', '>= 3.3.0'
