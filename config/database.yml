@@ -17,9 +17,9 @@ production:
   database: <%= Rails.application.credentials[:database] %>
   pool: <%= Rails.application.credentials[:pool] %>
   username: <%= Rails.application.credentials[:username] %>
-  password: <%= Rails.application.credentials.[:password] %>
-  timeout: <%= Rails.application.credentials.[:timeout] %>
-  port: <%= Rails.application.credentials.[:port] %>
-  host: <%= Rails.application.credentials.[:host] %>
+  password: <%= Rails.application.credentials[:password] %>
+  timeout: <%= Rails.application.credentials[:timeout] %>
+  port: <%= Rails.application.credentials[:port] %>
+  host: <%= Rails.application.credentials[:host] %>
 
 
