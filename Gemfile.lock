@@ -366,7 +366,6 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
-  mini_magick
   pg
   pry
   puma (~> 4.1)
