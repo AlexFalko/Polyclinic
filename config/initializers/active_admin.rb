@@ -45,7 +45,7 @@ ActiveAdmin.setup do |config|
   #
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.
-
+  config.skip_before_action :authenticate_user!
   # == User Authentication
   #
   # Active Admin will automatically call an authentication
@@ -118,6 +118,7 @@ ActiveAdmin.setup do |config|
   #
   # Default:
   # config.root_to = 'dashboard#index'
+  # config.skip_before_action :authenticate_user!
 
   # == Admin Comments
   #

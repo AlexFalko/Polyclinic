@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  # binding.pry
 
   def after_sign_in_path_for(user)
     case user
