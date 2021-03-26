@@ -8,17 +8,26 @@ en:
       successfully_appointment: 'You successfully make an appointment with a doctor'
       error_appointment: 'Error_appointment'
       has_max_appointments: "This doctor has more than %{max_doctor_appointments} entries" 
+    update:
+      successfully_recommendation: 'You made a recommendation'
+      error_recommendation: 'Error recommendation'
   doctors:
     show:
       save: 'Give a recommendation'
       welcome: 'Welcome'
       about_show: 'This is a list of registered patients for your appointment.'
+      upload_avatar: 'Upload avatar'
+      upload_photo: 'Upload photo'
   patients:
     show:
       save: 'Sign up'
       welcome: 'Welcome'
       about_user: 'This is a list of doctors by categories to which you can make an appointment.'
       text: 'Recommendations'
+      upload_avatar: 'Upload avatar'
+      my_recommendation: 'My recommendation'
+      upload_photo: 'Upload photo'
+      list_recommendation: 'List recommendation'
   layouts:    
     application:
       project_name: ':Codica'

@@ -1,7 +1,8 @@
-.container
+.text-center
   = current_user.name
   = t('.title')
   = @appointment.patient_name
+.content_center
   = simple_form_for @appointment do |f|
-    = f.input :recommendation, :label => t('.text')
+    = f.input :recommendation
     = f.button :submit, t('.save'),class: "btn-primary"

@@ -4,5 +4,4 @@ class CategoryDecorator < Draper::Decorator
   def category_name
     doctor.category.name
   end
-
 end

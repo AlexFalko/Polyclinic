@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -7,7 +6,7 @@ Rails.application.routes.draw do
     registrations: 'patients/registrations'
   }
 
-  root to: "users#show"
+  root to: 'users#show'
   resources :appointments, only: %i[create edit update]
   resources :doctors
   resources :patients

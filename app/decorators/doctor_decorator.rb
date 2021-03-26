@@ -4,5 +4,4 @@ class DoctorDecorator < Draper::Decorator
   def patient_name
     appointment.patient.name
   end
-
 end

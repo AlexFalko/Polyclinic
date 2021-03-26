@@ -9,16 +9,15 @@ class PatientsController < ApplicationController
     @patient = Patient.find_by(id: params[:id])
     # binding.pry
     if @patient.update(patient_params)
-      redirect_to patient_path, flash: { notice: "Avatar save" }
+      redirect_to patient_path, flash: { notice: 'Avatar save' }
     else
-      redirect_to patient_path, flash: { alert: "Avatar dont save" }
+      redirect_to patient_path, flash: { alert: 'Avatar dont save' }
     end
   end
-  
+
   private
 
   def patient_params
     params.require(:patient).permit(:avatar)
   end
-  
 end

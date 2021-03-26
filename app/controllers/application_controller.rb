@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  # binding.pry
 
   def after_sign_in_path_for(user)
     case user
@@ -14,11 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
- 
+
   private
- 
+
   def user_not_authorized
-    flash[:warning] = "You are not authorized to perform this action."
+    flash[:warning] = 'You are not authorized to perform this action.'
     redirect_to(request.referrer || root_path)
   end
 
@@ -26,5 +27,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:phone_number])
   end
-
 end

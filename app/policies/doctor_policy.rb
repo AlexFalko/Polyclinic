@@ -5,7 +5,6 @@ class DoctorPolicy < ApplicationPolicy
     @user.present? && user.type == 'Doctor'
   end
 
-
   class Scope < Scope
     def resolve
       scope.where(user: user)
