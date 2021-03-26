@@ -19,7 +19,7 @@
   .row
     - @active_patients.each do |appointment|
       .col.mb-4
-        .card.card_width
+        .card.cart_width
           %img.card-img-top
           = image_tag(appointment.patient.avatar.url) if appointment.patient.avatar?
           .card-body.pb-2

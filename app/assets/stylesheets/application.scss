@@ -33,7 +33,7 @@
   @extend .alert-warning;
 }
 
-.card_width{
+.cart_width{
   width: 15rem;
 }
 
@@ -63,4 +63,8 @@
 
 body {
   background-color: #ffffff;
+}
+
+.alert{
+  margin-bottom: 0px;
 }
