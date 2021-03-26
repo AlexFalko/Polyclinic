@@ -17,10 +17,11 @@
         %div
           .navbar-nav
             - if user_signed_in?
-              %span.nav-item.nav-link.text-white
+              %span.text-white
+                = image_tag(current_user.avatar.url,:class => "img_preview") if current_user.avatar?
                 = t('.hello') 
                 #{current_user.phone_number}
-              = link_to t('.exit'), destroy_user_session_path, method: :delete, class: "nav-item nav-link text-white"
+                = link_to t('.exit'), destroy_user_session_path, method: :delete, class: "text-white"
             - else
               = link_to t('.sign_in'), new_user_session_path, class: "nav-item nav-link text text-white"
               = link_to t('.sign_up'), new_user_registration_path, class: "nav-item nav-link text-white"
