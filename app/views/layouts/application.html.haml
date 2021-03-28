@@ -13,7 +13,7 @@
         %div
           %h4.mb-0
             .navbar-brand
-              = link_to t('.project_name'), root_path, class: "nav-item text-white"
+              = link_to t('.project_name'), current_user, class: "nav-item text-white"
         %div
           .navbar-nav
             - if user_signed_in?
